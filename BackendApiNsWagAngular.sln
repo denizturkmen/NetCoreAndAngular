@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackendApi.Business", "Back
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackendApi.SwaggerUI", "BackendApi.SwaggerUI\BackendApi.SwaggerUI.csproj", "{FE6A1B03-4027-4AA4-A2AB-424051850839}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackendApi", "BackendApi", "{B3EABE61-84AC-40F5-8590-5E5F6DEAED43}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{48037487-1469-4049-AB57-0F79083D2C5A} = {B3EABE61-84AC-40F5-8590-5E5F6DEAED43}
+		{41841C25-E476-4C72-BF4D-4C79017D3465} = {B3EABE61-84AC-40F5-8590-5E5F6DEAED43}
+		{6CCFF7E6-4B8B-4985-A77A-9A78AD71E946} = {B3EABE61-84AC-40F5-8590-5E5F6DEAED43}
+		{FE6A1B03-4027-4AA4-A2AB-424051850839} = {B3EABE61-84AC-40F5-8590-5E5F6DEAED43}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FCB794EB-EAE9-4320-8107-74EDFED6BFA6}
