@@ -14,6 +14,7 @@ using BackendApi.Business.Abstract;
 using BackendApi.Business.Concrete;
 using BackendApi.DataAccessLayer.Abstract;
 using BackendApi.DataAccessLayer.Concrete;
+using Microsoft.OpenApi.Models;
 
 namespace BackendApi.SwaggerUI
 {
@@ -30,6 +31,25 @@ namespace BackendApi.SwaggerUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSwaggerGen();
+
+            services.AddSwaggerGen(i =>
+            {
+                i.SwaggerDoc("My_Api_V1", new OpenApiInfo
+                {
+                    Title = "Swagger Net Core",
+                    Description = "Net core 3.1",
+                    Version = "2.0.0",
+                    Contact = new OpenApiContact()
+                    {
+                        Name = "Swagger Implementation Deniz",
+                        Email = "deneme@hotmail.com",
+                        Url = new Uri("http://denizturkmen.com.tr")
+                    },
+                    TermsOfService = new Uri("http://swagger.io/terms/")
+                });
+            });
 
             //Dependecy Injection sonra folder alcam
             services.AddTransient<IPersonService, PersonManager>();
@@ -49,6 +69,13 @@ namespace BackendApi.SwaggerUI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My_Api_V1");
+            });
 
             app.UseEndpoints(endpoints =>
             {
