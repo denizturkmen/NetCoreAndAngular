@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackendApi.Model", "BackendApi.Model\BackendApi.Model.csproj", "{48037487-1469-4049-AB57-0F79083D2C5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackendApi.Model", "BackendApi.Model\BackendApi.Model.csproj", "{48037487-1469-4049-AB57-0F79083D2C5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackendApi.DataAccessLayer", "BackendApi.DataAccessLayer\BackendApi.DataAccessLayer.csproj", "{41841C25-E476-4C72-BF4D-4C79017D3465}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackendApi.DataAccessLayer", "BackendApi.DataAccessLayer\BackendApi.DataAccessLayer.csproj", "{41841C25-E476-4C72-BF4D-4C79017D3465}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackendApi.Business", "BackendApi.Business\BackendApi.Business.csproj", "{6CCFF7E6-4B8B-4985-A77A-9A78AD71E946}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackendApi.Business", "BackendApi.Business\BackendApi.Business.csproj", "{6CCFF7E6-4B8B-4985-A77A-9A78AD71E946}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackendApi.SwaggerUI", "BackendApi.SwaggerUI\BackendApi.SwaggerUI.csproj", "{FE6A1B03-4027-4AA4-A2AB-424051850839}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackendApi.SwaggerUI", "BackendApi.SwaggerUI\BackendApi.SwaggerUI.csproj", "{FE6A1B03-4027-4AA4-A2AB-424051850839}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackendApi", "BackendApi", "{B3EABE61-84AC-40F5-8590-5E5F6DEAED43}"
 EndProject
