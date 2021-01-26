@@ -10,6 +10,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BackendApi.Business.Abstract;
+using BackendApi.Business.Concrete;
+using BackendApi.DataAccessLayer.Abstract;
+using BackendApi.DataAccessLayer.Concrete;
 
 namespace BackendApi.SwaggerUI
 {
@@ -26,6 +30,10 @@ namespace BackendApi.SwaggerUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            //Dependecy Injection sonra folder alcam
+            services.AddTransient<IPersonService, PersonManager>();
+            services.AddTransient<IPersonDal, EfCorePersonDal>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
