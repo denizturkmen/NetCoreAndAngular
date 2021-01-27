@@ -36,7 +36,7 @@ namespace BackendApi.SwaggerUI
 
             services.AddSwaggerGen(i =>
             {
-                i.SwaggerDoc("My_Api_V1", new OpenApiInfo
+                i.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Title = "Swagger Net Core",
                     Description = "Net core 3.1",
