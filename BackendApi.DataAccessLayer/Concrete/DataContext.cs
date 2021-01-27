@@ -12,7 +12,7 @@ namespace BackendApi.DataAccessLayer.Concrete
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DENIZ-PC;Database=NsWagDB;Integrated Security=true");
+            optionsBuilder.UseSqlServer(@"Server=DENIZ-PC\MSSQLSERVER_1;Database=NsWagDB;Integrated Security=true");
             base.OnConfiguring(optionsBuilder);
         }
 

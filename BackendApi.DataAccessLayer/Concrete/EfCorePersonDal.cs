@@ -8,9 +8,6 @@ namespace BackendApi.DataAccessLayer.Concrete
 {
     public class EfCorePersonDal : EfCoreGenericRepository<Person,DataContext>,IPersonDal
     {
-        public EfCorePersonDal(DataContext context) : base(context)
-        {
-
-        }
+       
     }
 }

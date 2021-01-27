@@ -8,43 +8,60 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BackendApi.DataAccessLayer.Concrete
 {
-    public class EfCoreGenericRepository<TEntity,TContext> :IRepository<TEntity> where TEntity:class where TContext :DbContext,new ()
+    public class EfCoreGenericRepository<TEntity, TContext> : IRepository<TEntity>
+        where TEntity : class
+        where TContext : DbContext, new()
+
     {
-        private readonly TContext _context;
-
-        public EfCoreGenericRepository(TContext context)
+        public virtual void Create(TEntity entity)
         {
-            _context = context;
+            using (var context = new DataContext())
+            {
+               
+                context.Set<TEntity>().Add(entity);
+                context.SaveChanges();
+            }
         }
 
-        public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
+        public virtual void Delete(TEntity entity)
         {
-            var listEntity= filter == null ? _context.Set<TEntity>().ToList() : _context.Set<TEntity>().Where(filter).ToList();
-            return listEntity;
+            using (var context = new DataContext())
+            {
+               
+                context.Set<TEntity>().Remove(entity);
+                context.SaveChanges();
+            }
         }
 
-        public TEntity GetById(int id)
+ 
+        public virtual void Update(TEntity entity)
         {
-            var entity= _context.Set<TEntity>().Find(id);
-            return entity;
+            using (var context = new DataContext())
+            {
+                context.Entry(entity).State = EntityState.Modified;
+                context.SaveChanges();
+            }
         }
 
-        public void Create(TEntity entity)
+
+        public virtual List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
         {
-            _context.Set<TEntity>().Add(entity);
-            _context.SaveChanges();
+            using (var context = new TContext())
+            {
+                return filter == null
+                    ? context.Set<TEntity>().ToList()
+                    : context.Set<TEntity>().Where(filter).ToList();
+            }
+        }
+        
+        public virtual TEntity GetById(int id)
+        {
+            using (var context = new DataContext())
+            {
+                return context.Set<TEntity>().Find(id);
+            }
         }
 
-        public void Update(TEntity entity)
-        {
-            _context.Entry(entity).State = EntityState.Modified;
-            _context.SaveChanges();
-        }
-
-        public void Delete(TEntity entity)
-        {
-            _context.Set<TEntity>().Remove(entity);
-            _context.SaveChanges();
-        }
+     
     }
 }
