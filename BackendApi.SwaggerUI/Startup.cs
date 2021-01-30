@@ -10,8 +10,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using BackendApi.Business.Abstract;
 using BackendApi.Business.Concrete;
+using BackendApi.Business.Mapping;
 using BackendApi.DataAccessLayer.Abstract;
 using BackendApi.DataAccessLayer.Concrete;
 using Microsoft.OpenApi.Models;
@@ -50,6 +52,14 @@ namespace BackendApi.SwaggerUI
                     TermsOfService = new Uri("http://swagger.io/terms/")
                 });
             });
+
+
+            var config=  new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<AutoMapping>();
+            });
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
 
             //Dependecy Injection sonra folder alcam
             services.AddTransient<IPersonService, PersonManager>();

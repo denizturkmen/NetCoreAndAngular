@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using BackendApi.Business.Abstract;
+using BackendApi.Model.Dto;
 using BackendApi.Model.Entity;
 
 namespace BackendApi.SwaggerUI.Controllers
@@ -13,11 +15,14 @@ namespace BackendApi.SwaggerUI.Controllers
     public class PersonController : ControllerBase
     {
         private readonly IPersonService _personService;
+        private readonly IMapper _mapper;
 
-        public PersonController(IPersonService personService)
+        public PersonController(IPersonService personService, IMapper mapper)
         {
             _personService = personService;
+            _mapper = mapper;
         }
+       
 
         [HttpGet]
         public IActionResult GetAll()
@@ -39,17 +44,17 @@ namespace BackendApi.SwaggerUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] Person person)
+        public IActionResult Create([FromBody] PersonDto model)
         {
-            if (person == null)
+            if (model == null)
             {
                 return BadRequest("Person is Null!!!!");
             }
 
-            _personService.Create(person);
+            var mdl = _mapper.Map<Person>(model);
+            _personService.Create(mdl);
 
-            return CreatedAtRoute("GetById",
-                new {Id = person.Id}, person);
+            return Ok(mdl);
 
         }
 
