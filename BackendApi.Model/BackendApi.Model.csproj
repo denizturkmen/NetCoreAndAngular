@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="View\" />
+    <Folder Include="Jwt\View\" />
+    <Folder Include="Person\View\" />
   </ItemGroup>
 
 </Project>

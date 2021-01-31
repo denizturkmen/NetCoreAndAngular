@@ -11,7 +11,6 @@ namespace BackendApi.Business.Mapping
     {
         public AutoMapping()
         {
-           // CreateMap<Person, PersonDto>();
             CreateMap<PersonDto, Person>();
         }
     }
